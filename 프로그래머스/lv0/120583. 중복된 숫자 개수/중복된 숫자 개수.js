@@ -1,7 +1,5 @@
 function solution(array, n) {
-    let cnt = 0;
-    for (i = 0 ; i < array.length; i++) {
-        if (array[i] === n) cnt++;
-    }
+    let newArray = array.filter(i => i === n);
+    let cnt = newArray.length;
     return cnt;
 }
