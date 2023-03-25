@@ -1,5 +1,7 @@
 function solution(num_list) {
-    let even = num_list.filter(i => i%2===0);
-    let odd = num_list.filter(i => i%2!==0);
-    return [even.length, odd.length];
+    let answer = [0,0];
+    for (let v of num_list) {
+        answer[v%2] += 1;
+    }
+    return answer;
 }
