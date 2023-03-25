@@ -1,3 +1,5 @@
 function solution(num_list) {
-    return num_list.reverse();
+    let answer = [];
+    num_list.forEach(i => answer.unshift(i));
+    return answer;
 }
