@@ -1,4 +1,1 @@
-function solution(my_string, letter) {
-    var answer = my_string.split(letter).join('');
-    return answer;
-}
+const solution = (my_string, letter) => my_string.replace(new RegExp(letter, 'g'), '');
