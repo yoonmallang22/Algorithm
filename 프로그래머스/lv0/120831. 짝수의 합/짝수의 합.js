@@ -1,7 +1,7 @@
 function solution(n) {
-    let answer = 0
-    for (let i = 0; i <= n ; i += 2){
-        answer += i;
-    }
-    return answer;
+    return Array(n)
+        .fill()
+        .map((_, i) => i + 1)
+        .filter((v) => v % 2 === 0)
+        .reduce((a, c) => a + c, 0);
 }
