@@ -1,3 +1,7 @@
 function solution(my_string) {
-    return [...my_string].map(v => +v).filter(v => !Number.isNaN(v)).reduce((acc, cur) => acc+cur, 0);
+    let sum = 0;
+    for (const item of my_string) {
+        if (!isNaN(item)) sum += +item;
+    }
+    return sum;
 }
