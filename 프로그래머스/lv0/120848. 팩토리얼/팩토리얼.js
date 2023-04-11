@@ -1,17 +1,11 @@
-function factorial(i) {
-    let s = 1;
-    let x = 1;
-    while ( x <= i ) {
-      s *= x;
-      x++;
-    }
-    return s;
-}
-
 function solution(n) {
-    let i = 1;
-    while (n / factorial(i) >= i+1){
-        i++;
+    let result = 1;
+    for(let i = 1; i < 11; i++){
+        result *= i;
+        if(result > n){
+            return i - 1;
+        } else if (result === n) {
+            return i;
+        }
     }
-    return i;
 }
