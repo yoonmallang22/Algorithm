@@ -1,4 +1,3 @@
 function solution(my_string) {
-    const arr = new Set([...my_string]);
-    return [...arr].join('');
+    return [...new Set(my_string)].join('');
 }
