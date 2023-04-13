@@ -1,9 +1,10 @@
 function solution(s) {
-    const arr = s.split(' ');
-    for (let i = 0; i < s.length; i++) {
-        if (arr[i] === 'Z') {
-            arr.splice(i-1, 2, 0);
-        }
-    }
-    return arr.map(v => +v).reduce((acc, cur) => acc + cur, 0);
+    const stack = [];
+
+    s.split(' ').forEach((v) => {
+        if(v === 'Z') stack.pop();
+        else stack.push(+v);
+    })
+
+    return stack.length ? stack.reduce((acc, cur) => acc + cur, 0) : 0;
 }
