@@ -1,11 +1,7 @@
 function solution(my_string) {
-    let answer = "";
-    for (const item of my_string) {
-        if (item === item.toUpperCase()) {
-            answer += item.toLowerCase();
-        } else {
-            answer += item.toUpperCase();
-        }
+    let answer = '';
+    for (let item of my_string) {
+        answer += item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase();
     }
     return answer;
 }
