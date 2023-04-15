@@ -1,3 +1,3 @@
 function solution(n) {
-    return n % Math.sqrt(n) === 0 ? 1 : 2;
+    return Math.sqrt(n) === Math.floor(Math.sqrt(n)) ? 1 : 2;
 }
