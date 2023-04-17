@@ -1,4 +1,4 @@
 function solution(order) {
-    const clap = new Set([3, 6, 9]);
-    return order.toString().split('').map(v => +v).filter(v => clap.has(v)).length;
+    let answer = order.toString().match(/[3,6,9]/g) ?? []
+	return answer.length;
 }
