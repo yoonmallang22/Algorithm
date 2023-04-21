@@ -1,3 +1,9 @@
 function solution(s) {
-    return [...s].filter(v => s.match(new RegExp(v,'g')).length == 1).sort().join('');
+    let arr = [];
+    for (const item of s) {
+        if (s.indexOf(item) === s.lastIndexOf(item)) {
+            arr.push(item);
+        }
+    }
+    return arr.sort().join('');
 }
