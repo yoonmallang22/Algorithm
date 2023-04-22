@@ -1,3 +1,3 @@
 function solution(num, k) {
-    return num.toString().split('').indexOf(k+'') > -1 ? num.toString().split('').indexOf(k+'') + 1 : -1;
+    return [...num+''].indexOf(k+'') > -1 ? [...num+''].indexOf(k+'') + 1 : -1;
 }
