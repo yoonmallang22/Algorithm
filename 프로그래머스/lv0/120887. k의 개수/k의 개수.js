@@ -1,8 +1,7 @@
 function solution(i, j, k) {
-    let arr = [];
-    let cnt = 0;
-    for(let x = i; x < j+1; x++) {
-        arr.push(x);
+    let str = '';
+    for(i; i < j+1; i++) {
+        str += i;
     }
-    return [...arr.join('')].filter(v => v == k).length;
+    return str.split(k).length - 1;
 }
