@@ -1,10 +1,5 @@
 function solution(n) {
-    let num = 0;
-    for (let i = 1; i <= n; i++) {
-        num++;
-        while(num.toString().includes('3') || num % 3 === 0) {
-            num++;
-        }
-    }
-    return num;
+  return [...Array(n * 3)]
+    .map((_, i) => i + 1)
+    .filter((num) => num % 3 !== 0 && !num.toString().includes("3"))[n - 1];
 }
