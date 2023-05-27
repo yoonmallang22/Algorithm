@@ -1,15 +1,9 @@
 function solution(A, B) {
-    let newA = [...A];
+    if (A === B) return 0;
     
-    for (let i = 0; i < newA.length; i++) {
-        if (A === B) {
-            return i;
-        } else {
-            newA.unshift(newA.pop());
-            if (newA.join('') === B) {
-                return i+1;
-            }
-        }
+    for (let i = 0; i < A.length; i++) {
+        A = A.slice(-1) + A.slice(0,-1);
+        if (A === B) return i+1;
     }
     
     return -1;
