@@ -1,3 +1,13 @@
 function solution(my_string, alp) {
-    return my_string.replaceAll(alp, alp.toUpperCase());
+    let answer = "";
+
+    my_string.split("").map(v => {
+        if (v === alp) {
+            answer += v.toUpperCase();
+        } else {
+            answer += v;
+        }
+    })
+
+    return answer;
 }
