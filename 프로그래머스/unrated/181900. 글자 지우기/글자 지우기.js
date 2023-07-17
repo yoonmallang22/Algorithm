@@ -1,8 +1,6 @@
 function solution(my_string, indices) {
     let arr = my_string.split('');
-    for (let i = 0; i < indices.length; i++) {
-        arr.splice(indices[i], 1, ' ');
-    }
+    indices.map(v => arr.splice(v, 1, ' '));
     
     return arr.join('').replaceAll(' ', '');
 }
