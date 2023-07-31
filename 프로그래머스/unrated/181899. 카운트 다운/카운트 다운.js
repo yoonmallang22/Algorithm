@@ -1,8 +1,3 @@
 function solution(start, end) {
-    let arr = [];
-    for (let i = start; i >= end; i--) {
-        arr.push(i);
-    }
-    
-    return arr;
+    return Array(start - end + 1).fill(start).map((v, i) => v - i);
 }
