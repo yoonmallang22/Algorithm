@@ -1,16 +1,3 @@
 function solution(arr, flag) {
-    let X = [];
-    for (let i = 0; i < flag.length; i++) {
-        if (flag[i]) {
-            for (let j = 0; j < arr[i] * 2; j++) {
-                X.push(arr[i]);
-            }
-        } else {
-            for (let j = 0; j < arr[i]; j++) {
-                X.pop();
-            }
-        }
-    }
-    
-    return X;
+    return arr.reduce((prev, num, i) => (flag[i] ? [...prev, ...new Array(num * 2).fill(num)] : prev.slice(0, -num)), []);
 }
