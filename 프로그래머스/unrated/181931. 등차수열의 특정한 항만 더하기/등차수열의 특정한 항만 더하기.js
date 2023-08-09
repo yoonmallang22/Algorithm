@@ -1,8 +1,3 @@
 function solution(a, d, included) {
-    let answer = 0;
-    for (let i = 0; i < included.length; i++) {
-        if (included[i]) answer += (a + d * i);
-    }
-    
-    return answer;
+    return included.reduce((acc, cur, i) => cur ? acc + a + d * i : acc, 0);
 }
