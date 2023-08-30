@@ -14,11 +14,7 @@ function solution(n, slicer, num_list) {
             break;
             
         case 4:
-            let arr = [];
-            for (let i = a; i < b + 1; i += c) {
-                arr.push(num_list[i]);
-            }
-            return arr;
+            return num_list.slice(a, b + 1).filter((_, i) => i % c === 0);
             break;
             
         default:
