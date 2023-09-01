@@ -1,9 +1,6 @@
 function solution(strArr) {
-    const arr = strArr.map(v => v.length);
-    let result = 0;
-    for (let i = 1; i <= Math.max(...arr); i++) {
-        if (result < arr.filter(v => v === i).length) result = arr.filter(v => v === i).length;
-    }
+    let arr = Array(31).fill(0);
+    for (let s of strArr) arr[s.length]++;
     
-    return result;
+    return Math.max(...arr)
 }
