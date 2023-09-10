@@ -1,3 +1,5 @@
 function solution(num_list, n) {
-    return [...num_list.splice(n, num_list.length) , ...num_list.splice(0, n)];
+    num_list.push(...num_list.splice(0, n));
+    
+    return num_list;
 }
