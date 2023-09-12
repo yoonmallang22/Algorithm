@@ -7,7 +7,6 @@ function solution(array) {
         if (counting.has(i)) counting.set(i, counting.get(i)+1);
         while (counting.get(i) > max) max++;
     }
-    
     for (let [k, v] of counting) {
         if (v === max) countArray.push(k);
     }
