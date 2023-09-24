@@ -1,10 +1,7 @@
 function solution(str_list) {
-    const lIdx = str_list.indexOf('l');
-    const rIdx = str_list.indexOf('r');
-    
-    if (lIdx !== -1 && rIdx === -1) return str_list.splice(0, lIdx);
-    else if (rIdx !== -1 && lIdx === -1) return str_list.splice(rIdx + 1);
-    else if (lIdx < rIdx) return str_list.splice(0, lIdx);
-    else if (lIdx > rIdx) return str_list.splice(rIdx + 1);
-    else if (lIdx === -1 && rIdx === -1) return [];
+    for (let i = 0; i < str_list.length; i++) {
+        if (str_list[i] === 'l') return str_list.slice(0, i);
+        if (str_list[i] === 'r') return str_list.slice(i + 1);
+    }
+    return [];
 }
