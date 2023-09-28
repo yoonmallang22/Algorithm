@@ -1,3 +1,9 @@
 function solution(numbers) {
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].filter(v => !numbers.includes(v)).reduce((a, c) => a + c, 0);
+    let answer = 0;
+
+    for (let i = 0; i <= 9; i++) {
+        if(!numbers.includes(i)) answer += i;
+    }
+
+    return answer;
 }
