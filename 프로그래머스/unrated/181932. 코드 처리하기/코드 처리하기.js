@@ -3,21 +3,11 @@ function solution(code) {
     let mode = 0;
     
     [...code].map((v, idx) => {
-        if (mode === 0) {
-            if (v !== "1") {
-                if (idx % 2 === 0) {
-                    ret += v;
-                }
-            } else {
-                mode = 1;
-            }
+        if (v === "1") {
+            mode = mode ? 0 : 1;
         } else {
-            if (v !== "1") {
-                if(idx % 2 !== 0) {
-                    ret += v;
-                }
-            } else {
-                mode = 0;
+            if (idx % 2 === mode) {
+                ret += v;
             }
         }
     });
