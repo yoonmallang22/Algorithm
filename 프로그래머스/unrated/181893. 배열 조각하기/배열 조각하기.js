@@ -1,12 +1,15 @@
 function solution(arr, query) {
-    query.forEach((v, i) => {
+    let start = 0;
+    let end = 0;
+
+    for (let i = 0; i < query.length; i++) {
         if (i % 2 === 0) {
-            arr = arr.slice(0, v + 1);
+            end = start + query[i];
         } else {
-            arr = arr.slice(v);
+            start += query[i];
         }
-    });
+    }
     
-    return arr;
+    return arr.slice(start, end + 1);
 }
 
