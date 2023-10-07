@@ -1,8 +1,8 @@
 function solution(n) {
-    let arr = [];
+    let result = 0;
     for (let i = 1; i <= n; i++) {
-        if (n % i === 0) arr.push(i);
+        if (n % i === 0) result += i;
     }
     
-    return arr.reduce((acc, cur) => acc + cur, 0);
+    return result;
 }
