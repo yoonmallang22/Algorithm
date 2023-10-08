@@ -1,10 +1,8 @@
 function solution(x, n) {
     let answer = [];
     
-    let i = x;
-    while (answer.length !== n) {
-        answer.push(i);
-        i += x;
+    for (let i = 1; i <= n; i++) {
+        answer.push(x * i);
     }
     
     return answer;
