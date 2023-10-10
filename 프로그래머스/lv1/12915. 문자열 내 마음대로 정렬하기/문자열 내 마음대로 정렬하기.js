@@ -1,8 +1,15 @@
 function solution(strings, n) {
-    return strings.sort((a, b) => {
-        if (a[n] === b[n]) {
-            return a > b ? 1 : -1;
-        }
-        return a[n] > b[n] ? 1 : -1;
-    });
+    let answer = [];
+    
+    for (let i = 0; i < strings.length; i++) {
+        let str = strings[i][n];
+        strings[i] = str + strings[i];
+    }
+    strings.sort();
+    
+    for (let i = 0; i < strings.length; i++) {
+        answer.push(strings[i].slice(1));
+    }
+
+    return answer;
 }
