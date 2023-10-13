@@ -1,3 +1,3 @@
 function solution(n) {
-    return +[...(n + '')].sort((a, b) => b - a).join('');
+    return +[...(n + '')].sort().reverse().join('');
 }
