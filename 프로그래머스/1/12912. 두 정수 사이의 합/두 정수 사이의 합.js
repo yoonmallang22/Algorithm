@@ -1,9 +1,7 @@
 function solution(a, b) {
     let answer = 0;
     
-    if (a > b) [a, b] = [b, a];
-    
-    for (let i = a; i <= b; i++) {
+    for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
         answer += i;
     }
     
