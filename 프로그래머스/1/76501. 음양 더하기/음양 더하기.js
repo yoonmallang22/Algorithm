@@ -1,4 +1,3 @@
 function solution(absolutes, signs) {
-    var answer = 123456789;
-    return answer;
+    return absolutes.reduce((acc, cur, i) => acc + cur * (signs[i] ? 1 : -1), 0);
 }
