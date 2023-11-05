@@ -1,9 +1,11 @@
     function solution(sizes) {
-        let arr = [];
-        sizes.forEach(([w, h]) => {
-            if (w < h) arr.push([h, w]);
-            else arr.push([w, h]);
+        const arr = sizes.map(([w, h]) => w < h ? [h, w] : [w, h]);
+
+        let maxSize = [0, 0];
+        arr.forEach(([w, h]) => {
+            if (w > maxSize[0]) maxSize[0] = w;
+            if (h > maxSize[1]) maxSize[1] = h;
         });
         
-        return Math.max(...arr.map(([w, h]) => w)) * Math.max(...arr.map(([w, h]) => h));
+        return maxSize[0] * maxSize[1];
 }
