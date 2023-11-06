@@ -1,13 +1,22 @@
 function solution(s, n) {
-    return s.split('').map(v => {
-        let ASCII = v.charCodeAt();
-        if (ASCII >= 65 && ASCII <= 90) {
-            ASCII += n;
-            if (ASCII > 90) ASCII -= 26;
-        } else if (ASCII >= 97 && ASCII <= 122) {
-            ASCII += n;
-            if (ASCII > 122) ASCII -= 26;
+    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lower = "abcdefghijklmnopqrstuvwxyz";
+    let answer= '';
+
+    for (let i = 0; i < s.length; i++){
+        let text = s[i];
+        
+        if (text === ' ') {
+            answer += ' '; 
+            continue;
         }
-        return String.fromCharCode(ASCII);
-    }).join('');
+        
+        let textArr = upper.includes(text) ? upper : lower;
+        let index = textArr.indexOf(text) + n;
+        if (index >= textArr.length) index -= textArr.length;
+        
+        answer += textArr[index];
+    }
+    
+    return answer;
 }
