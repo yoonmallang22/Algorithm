@@ -1,6 +1,8 @@
 function solution(nums) {
-    const uniqueArrNums = nums.filter((v, i, arr) => arr.indexOf(v) === i);
-    const result = Math.min(uniqueArrNums.length, nums.length / 2);
+    let obj = {};
+    nums.forEach(v => obj[v] = v);
+
+    const result = Math.min(Object.keys(obj).length, nums.length / 2);
 
     return result;
 }
