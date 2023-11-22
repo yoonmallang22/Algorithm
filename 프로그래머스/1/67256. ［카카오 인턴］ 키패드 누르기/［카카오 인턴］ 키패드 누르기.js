@@ -20,10 +20,12 @@ function solution(numbers, hand) {
             rightHand = position[v];
             return 'R';
         } else {
-            if (Math.abs(leftHand[0] - position[v][0]) + Math.abs(leftHand[1] - position[v][1]) < Math.abs(rightHand[0] - position[v][0]) + Math.abs(rightHand[1] - position[v][1])) {
+            let leftHandDistance = Math.abs(leftHand[0] - position[v][0]) + Math.abs(leftHand[1] - position[v][1]);
+            let rightHandDistance = Math.abs(rightHand[0] - position[v][0]) + Math.abs(rightHand[1] - position[v][1]);
+            if (leftHandDistance < rightHandDistance) {
                 leftHand = position[v];
                 return 'L';
-            } else if (Math.abs(leftHand[0] - position[v][0]) + Math.abs(leftHand[1] - position[v][1]) > Math.abs(rightHand[0] - position[v][0]) + Math.abs(rightHand[1] - position[v][1])) {
+            } else if (leftHandDistance > rightHandDistance) {
                 rightHand = position[v];
                 return 'R';
             } else {
