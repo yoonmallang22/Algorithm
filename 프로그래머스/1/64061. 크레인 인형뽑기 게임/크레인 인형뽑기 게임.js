@@ -4,16 +4,12 @@ function solution(board, moves) {
     moves = moves.map(v => v-1);
     
     for (let i = 0; i < moves.length; i++) {
-        try {
-            board.forEach(v => {
-                if (v[moves[i]] !== 0) {
-                    basket.push(v[moves[i]]);
-                    v[moves[i]] = 0;
-                    throw new Error("stop loop");
-                }
-            })
-        } catch(e) {
-            
+        for (let j = 0; j < board.length; j++) {
+            if (board[j][moves[i]] !== 0) {
+                basket.push(board[j][moves[i]]);
+                board[j][moves[i]] = 0;
+                break;
+            }
         }
     }
         
