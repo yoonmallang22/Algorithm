@@ -1,10 +1,14 @@
 function solution(number, limit, power) {
-    return new Array(number).fill(0).map((_, i) => i + 1).map(v => {
-        let cnt = 0;
-        for (let i = 1; i <= Math.sqrt(v); i++) {
-            if (v % i === 0) cnt += 2;
-            if (v / i === i) cnt--;
+    let answer = 0;
+    for (let i = 1; i <= number; i++) {
+        let count = 0;
+        for (let j = 1; j <= Math.sqrt(i); j++) {
+            if (i / j === j) count++;
+            else if (i % j === 0) count += 2;
         }
-        return cnt;
-    }).reduce((acc, cur) => acc + (cur > limit ? power : cur), 0);
+        if (count > limit) count = power;
+        answer += count;
+    }
+    
+    return answer;
 }
