@@ -1,8 +1,11 @@
 function solution(babbling) {
-    const regexp1 = /(aya|ye|woo|ma)\1+/;
-    const regexp2 = /^(aya|ye|woo|ma)+$/;
-
-    return babbling.reduce((ans, word) => (
-        !regexp1.test(word) && regexp2.test(word) ? ++ans : ans
-    ), 0);
+    const can = ['aya','ye','woo','ma'];
+    return babbling.reduce((total, current) => {
+        let babble = current;
+        for (let i = 0; i < can.length; i++) {
+            if (current.includes(can[i].repeat(2))) break;
+            babble = babble.split(can[i]).join(' ');
+        }
+        return total + (babble.split(' ').join('').length === 0);
+    }, 0);
 }
