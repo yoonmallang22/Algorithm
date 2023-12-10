@@ -5,7 +5,7 @@ function solution(s) {
     while (s !== '1') {
         zero += s.split('0').length - 1;
         cnt++;
-        s = s.split('0').join('').length.toString(2);
+        s = s.replace(/0/g, '').length.toString(2);
     }
     
     return [cnt, zero];
