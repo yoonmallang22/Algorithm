@@ -1,18 +1,17 @@
 function solution(n, words) {
-    let fail_i = -1;
-    
-    for (let i = 1; i < words.length; i++) {
-        let val = words[i];
-        if (words.indexOf(val) !== i || words[i-1].substring(words[i-1].length-1) != val.substring(0, 1)) {
-            fail_i = i;
+    const game = [];
+    const result = [0, 0];
+
+    for (let i = 0; i < words.length; i++) {
+        const last = game[game.length-1];
+        if (game.includes(words[i]) || (last && last[last.length-1] !== words[i][0])) {
+            result[0] = i%n + 1;
+            result[1] = Math.floor(i/n) + 1; 
             break;
         }
+
+        game.push(words[i]);
     }
 
-    if (fail_i == -1) return [0,0];
-
-    const num = fail_i%n + 1;
-    const turn = Math.floor(fail_i/n) + 1; 
-
-    return [num, turn];
+    return result;
 }
