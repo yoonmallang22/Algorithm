@@ -1,8 +1,18 @@
 function solution(n) {
-    let answer = 0;
-    for (let i = 1; i * (i - 1) / 2 < n; i++) {
-        if ((n - (i * (i - 1) / 2)) % i == 0) answer++;
+    let result = 1;
+    for (let i = 1; i < n/2; i++) {
+        let sum = i;
+        for (let j = i+1; j < n; j++) {
+            sum += j;
+            if (sum > n) {
+                break;
+            }
+            if (sum === n) {
+                result++;
+                break;
+            }
+        }
     }
     
-    return answer;
+    return result;
 }
