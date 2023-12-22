@@ -1,15 +1,12 @@
 function solution(brown, yellow) {
-    let result;
     let sum = brown + yellow;
-    let arr = [];
     
-    for (let i = 1; i <= sum; i++) {
-        if (sum % i === 0 && i >= sum/i) arr.push([i, sum/i]);
+    for (let height = 3; height <= brown; height++) {
+        if (sum % height === 0) {
+            let width = sum / height;
+            
+            if ((height-2) * (width-2) === yellow) return [width, height];
+        }
     }
     
-    arr.map(([a, b]) => {
-        if (a + a + (b+b-4) === brown) result = [a, b];
-    });
-    
-    return result;
 }
