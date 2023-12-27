@@ -1,16 +1,5 @@
 function solution(n) {
-    let result = 0;
-    
-    // 도착지점에서 거꾸로 되감기
-    // 이동한 지점이 홀수일 경우 점프를, 짝수를 경우 순간 이동을 사용하여 이전 지점으로 되돌아감
-    while (n !== 0) {
-        if (n % 2 === 1) {
-            result++;
-            n -= 1;
-        } else {
-            n /= 2;
-        }
-    }
-
-    return result;
+    // 어떠한 수를 2로 나누고, 그 몫을 또 2로 계속해서 나누면서 나오는 나머지들의 모든 합은
+    // 어떠한 수를 이진수로 변환한 수의 1의 개수와 같다
+    return n.toString(2).match(/1/g).length;
 }
