@@ -1,15 +1,15 @@
 function solution(s, skip, index) {
     let result = '';
-    let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
     
-    for (i = 0; i < s.length; i++) {
+    for (const c of s) {
         const arr = [];
-        let j = (alphabet.indexOf([...s][i]) + 1) % 26;
+        let i = (alphabet.indexOf(c) + 1) % 26;
         while (arr.length !== index) {
-            if (!skip.includes(alphabet[j])) {
-                arr.push(alphabet[j]);
+            if (!skip.includes(alphabet[i])) {
+                arr.push(alphabet[i]);
             }
-            j = (j+1) % 26;
+            i = (i+1) % 26;
         }
         result += arr.pop();
     }
