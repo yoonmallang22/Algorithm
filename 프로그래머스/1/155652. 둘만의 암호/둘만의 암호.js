@@ -1,17 +1,10 @@
 function solution(s, skip, index) {
     let result = '';
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const alphabet = [...'abcdefghijklmnopqrstuvwxyz'].filter(v => ![...skip].includes(v));
     
     for (const c of s) {
-        const arr = [];
-        let i = (alphabet.indexOf(c) + 1) % 26;
-        while (arr.length !== index) {
-            if (!skip.includes(alphabet[i])) {
-                arr.push(alphabet[i]);
-            }
-            i = (i+1) % 26;
-        }
-        result += arr.pop();
+        const newIdx = alphabet.indexOf(c) + index;
+        result += alphabet[newIdx % alphabet.length];
     }
     
     return result;
