@@ -1,22 +1,14 @@
 function solution(keymap, targets) {
-    const results = []
-    for (const target of targets) {
-        let result = 0;
-        for (let i = 0; i < target.length; i++) {
-            const counts = [];
-            for (const key of keymap) {
-                const count = key.indexOf(target[i]);
-                if (count !== -1) counts.push(count + 1);
-            }
-            if (counts.length) {
-                result += Math.min(...counts);
-            } else {
-                result = -1;
-                break;
-            }
-        }  
-        results.push(result);
+    const result = [];
+    const map = {};
+    
+    for (const items of keymap) {
+        items.split('').map((item, index) => map[item] = (map[item] < index+1 ? map[item] : index+1))
     }
     
-    return results;
+    for (const items of targets) {
+        result.push(items.split('').reduce((acc, cur) => acc += map[cur], 0) || -1)
+    }
+    
+    return result;
 }
