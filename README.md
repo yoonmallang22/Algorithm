@@ -1,2 +1,1 @@
-# Programmers
-JavaScript Algorithm
+# JavaScript Algorithm
